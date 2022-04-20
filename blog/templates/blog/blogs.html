@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Kayne Jeacocks - Professional Portfolio</title>
+    <title>Blog - Kayne Jeacocks - Professional Portfolio</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/album/">
 
@@ -47,7 +47,7 @@
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'jobs' %}">Home</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{% url 'jobs' %}">Jobs</a>
@@ -56,7 +56,7 @@
                     <a class="nav-link" href="{% url 'about' %}">About</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{% url 'blogs' %}">Blog</a>
+                    <a class="nav-link" href="#">Blog</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{% url 'contact' %}">Contact</a>
@@ -69,43 +69,32 @@
 
     <main>
 
-    <section class="py-5 text-center container">
-        <div class="row py-lg-5">
-        <div class="col-lg-6 col-md-8 mx-auto">
-            <h1 class="fw-light">Howzit, I'm Kayne.</h1>
-            <p class="lead text-muted">Web Developer with experience in the design, development and deployment of web
-                applications. I have real world experience not just in web development, but many areas
-                of business from Operations to Sales & Marketing.</p>
-            <p>
-            <a href="#" class="btn btn-primary my-2">Message me</a>
-            <a href="#" class="btn btn-secondary my-2">See my work</a>
-            </p>
-        </div>
+    <section class="py-3 container">
+        <div class="row">
+            <div class="col-lg-6 col-md-8">
+                <h1 class="fw-light">Blog</h1>
+                <p class="lead text-muted">My latest blog posts</p>
+            </div>
         </div>
     </section>
 
     <div class="album py-5 bg-light">
         <div class="container">
 
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"  data-masonry='{"percentPosition": true }'>
-
-            {% for job in jobs.all %}
-            <div class="col">
-                <div class="card shadow-sm">
-                    <img src="{{ job.image.url }}" class="card-img-top" alt="...">
-
-                    <div class="card-body">
-                    <p class="card-text">{{ job.summary }}</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <a href="#" class="btn btn-primary">See more</a>
-                        <small class="text-muted">9 mins</small>
-                    </div>
-                    </div>
+            {% for blog in blogs.all %}
+            <div class="row py-5">
+                <div class="col-md-4">
+                    <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="img-fluid img-thumbnail">
+                </div>
+                <div class="col-md-8">
+                    <a href="">
+                        <h2>{{ blog.title }}</h2>
+                    </a>
+                    <small class="text-muted">{{ blog.pubdate }}</small>
+                    <p>{{ blog.summary }}...</p>
                 </div>
             </div>
             {% endfor %}
-
-        </div>
         </div>
     </div>
 

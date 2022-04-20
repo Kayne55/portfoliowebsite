@@ -5,3 +5,6 @@ class Blog(models.Model):
     image = models.ImageField(upload_to='blog/%Y/%m/')
     pubdate = models.DateTimeField()
     body = models.TextField()
+
+    def summary(self):
+        return self.body[:250]
