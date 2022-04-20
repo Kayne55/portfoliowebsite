@@ -64,16 +64,16 @@
                 </ul>
               </div>
             </div>
-          </nav>
+        </nav>
     </header>
 
     <main>
 
     <section class="py-3 container">
         <div class="row">
-            <div class="col-lg-6 col-md-8">
-                <h1 class="fw-light">Blog</h1>
-                <p class="lead text-muted">My latest blog posts</p>
+            <div class="col">
+                <h1 class="fw-light">{{ blog.title }}</h1>
+                <p class="lead text-muted">{{ blog.pub_date_short }}</p>
             </div>
         </div>
     </section>
@@ -81,20 +81,17 @@
     <div class="album py-5 bg-light">
         <div class="container">
 
-            {% for blog in blogs.all %}
-            <div class="row py-5">
-                <div class="col-md-4">
+            <div class="row">
+                <div class="col">
                     <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="img-fluid img-thumbnail">
                 </div>
-                <div class="col-md-8">
-                    <a href="">
-                        <h2>{{ blog.title }}</h2>
-                    </a>
-                    <small class="text-muted">{{ blog.pub_date_short }}</small>
-                    <p>{{ blog.summary }}...</p>
+            </div>
+            <div class="row ">
+                <div class="col">
+                    <p>{{ blog.body }}...</p>
                 </div>
             </div>
-            {% endfor %}
+
         </div>
     </div>
 

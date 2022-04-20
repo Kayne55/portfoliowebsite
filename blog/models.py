@@ -6,5 +6,11 @@ class Blog(models.Model):
     pubdate = models.DateTimeField()
     body = models.TextField()
 
+    def __str__(self):
+        return self.title
+
     def summary(self):
         return self.body[:250]
+
+    def pub_date_short(self):
+        return self.pubdate.strftime('%e %b %Y')
