@@ -87,7 +87,7 @@
                     <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="img-fluid img-thumbnail">
                 </div>
                 <div class="col-md-8">
-                    <a href="">
+                    <a href="{% url 'blogarticle' blog.id %}">
                         <h2>{{ blog.title }}</h2>
                     </a>
                     <small class="text-muted">{{ blog.pub_date_short }}</small>
