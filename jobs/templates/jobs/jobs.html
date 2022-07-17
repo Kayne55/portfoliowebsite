@@ -47,7 +47,7 @@
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'jobs' %}">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{% url 'jobs' %}">Jobs</a>
@@ -88,10 +88,10 @@
                 </div>
                 <div class="col-md-8">
                     <a href="{% url 'jobpage' job.id %}">
-                        <h2>{ { blog.title } }</h2>
+                        <h2>{{ job.title }}</h2>
                     </a>
-                    <small class="text-muted">{ { jobs.job_date_short } }</small>
-                    <p>{{ jobs.summary }}...</p>
+                    <small class="text-muted">{{ jobs.job_date_short }}</small>
+                    <p>{{ job.summary }}...</p>
                 </div>
             </div>
             {% endfor %}
