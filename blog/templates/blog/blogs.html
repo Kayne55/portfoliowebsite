@@ -6,29 +6,36 @@
     <section class="py-3 container">
         <div class="row">
             <div class="col-lg-6 col-md-8">
-                <h1 class="fw-light">Blog</h1>
-                <p class="lead text-muted">My latest blog posts</p>
+                <h1 class="fw-light">My Blog</h1>
+                <p class="lead text-muted">My varied career has taken me on an interesting and </p>
             </div>
         </div>
     </section>
 
-    <div class="album py-5 bg-light">
+    <div class="album py-5">
         <div class="container">
 
-            {% for blog in blogs.all %}
-            <div class="row py-5">
-                <div class="col-md-4">
-                    <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="img-fluid img-thumbnail">
+          {% for blog in blogs.all %}
+          <div class="row py-2">
+              <div class="card mb-3" style="max-width: 768px; padding-left: 0;">
+                <div class="row g-0">
+                  <div class="col-md-4" style="background-image: url('{{ blog.image.url }}');background-size: cover;background-repeat: no-repeat; background-position: center;background-repeat: no-repeat;border-top-left-radius: 0.25rem;border-bottom-left-radius: 0.25rem;">
+                    <!-- <img src="{{ blog.image.url }}" class="img-fluid rounded-start" alt="{{ blog.title }}"> -->
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ blog.title }}</h5>
+                      <p class="card-text">
+                        <small class="text-muted" style="margin: 0 10px 0 0;"><i class="fa-regular fa-calendar-days"></i> {{ blog.pub_date_short }}</small>
+                        <small class="text-muted" style="margin: 0 10px 0 0;"><i class="fa-regular fa-circle-user"></i> {{ blog.author }}</small></p>
+                      <p class="card-text">{{ blog.summary }}...</p>
+                      <a href="{% url 'blogarticle' blog.id %}" class="btn btn-sm btn-warning">Read More</a>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-md-8">
-                    <a href="{% url 'blogarticle' blog.id %}">
-                        <h2>{{ blog.title }}</h2>
-                    </a>
-                    <small class="text-muted">{{ blog.pub_date_short }}</small>
-                    <p>{{ blog.summary }}...</p>
-                </div>
-            </div>
-            {% endfor %}
+              </div>
+              </div>
+              {% endfor %}
         </div>
     </div>
 
